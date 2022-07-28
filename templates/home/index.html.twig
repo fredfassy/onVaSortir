@@ -3,7 +3,48 @@
 {% block title %}EniTinder{% endblock %}
 
 {% block body %}
-<div class="profil-wrapper container-fluid p-0"></div>
+<div class="profil-wrapper container-fluid p-0">
+    
+
+    <div class="row gx-0">
+        <div class="col-md-10 offset-md-1 py-2">
+            <h2 class="text-white">Voici toutes les sorties</h2>
+
+    <table class="table bg-white d-block h-75 overflow-auto">
+        <thead>
+            <tr>
+                <th class="w-25">Titre</th>
+                <th class="w-50">Descriptif</th>
+                <th>Début</th>
+                <th>Fin</th>
+                <th>Organisateur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td class="w-25">{{ event.title }}</td>
+                <td class="w-50">{{ event.content }}</td>
+                <td>{{ event.beginAt ? event.beginAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event.endAt ? event.endAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event.user }}</td>
+                <td>
+                   
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+        </div>
+    </div>
+       
+</div>
 
 
 {% endblock %}
