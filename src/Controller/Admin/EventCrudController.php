@@ -25,6 +25,7 @@ class EventCrudController extends AbstractCrudController
         yield AssociationField::new('campus');
         yield DateField::new('beginAt');
         yield DateField::new('endAt');
+        yield AssociationField::new('place');
         yield BooleanField::new('isActive');
     }
     
